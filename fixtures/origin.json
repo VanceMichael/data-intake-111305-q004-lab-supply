@@ -1,0 +1,162 @@
+{
+  "identity_fields": [
+    "supplier",
+    "sku",
+    "quote_id"
+  ],
+  "source_records": [
+    {
+      "supplier": "alpha",
+      "sku": "TIP-20",
+      "quote_id": "Q1",
+      "valid_from": "2026-11-01",
+      "price": "240.00",
+      "currency": "CNY",
+      "package": "carton",
+      "description": "2内盒/箱，100支/内盒"
+    },
+    {
+      "supplier": "beta",
+      "sku": "TIP-20",
+      "quote_id": "Q2",
+      "valid_from": "2026-11-01",
+      "price": "125.00",
+      "currency": "CNY",
+      "package": "box",
+      "description": "100支/盒"
+    },
+    {
+      "supplier": "alpha",
+      "sku": "TIP-20",
+      "quote_id": "Q3",
+      "valid_from": "2026-11-12",
+      "price": "250.00",
+      "currency": "CNY",
+      "package": "carton",
+      "description": "新版整箱，待确认"
+    }
+  ],
+  "portal": {
+    "csrf": "form-2026-b"
+  },
+  "routes": {
+    "/feed": {
+      "json": {
+        "items": [
+          {
+            "supplier": "alpha",
+            "sku": "TIP-20",
+            "quote_id": "Q1",
+            "valid_from": "2026-11-01",
+            "price": "240.00",
+            "currency": "CNY",
+            "package": "carton",
+            "description": "2内盒/箱，100支/内盒"
+          },
+          {
+            "supplier": "beta",
+            "sku": "TIP-20",
+            "quote_id": "Q2",
+            "valid_from": "2026-11-01",
+            "price": "125.00",
+            "currency": "CNY",
+            "package": "box",
+            "description": "100支/盒"
+          },
+          {
+            "supplier": "alpha",
+            "sku": "TIP-20",
+            "quote_id": "Q3",
+            "valid_from": "2026-11-12",
+            "price": "250.00",
+            "currency": "CNY",
+            "package": "carton",
+            "description": "新版整箱，待确认"
+          }
+        ]
+      },
+      "headers": {
+        "ETag": "feed-1"
+      }
+    },
+    "/rate-limited": {
+      "status": 429,
+      "headers": {
+        "Retry-After": "2"
+      },
+      "json": {
+        "error": "quota"
+      }
+    },
+    "/unstable": [
+      {
+        "status": 503,
+        "body": "temporarily unavailable"
+      },
+      {
+        "json": {
+          "items": []
+        }
+      }
+    ],
+    "/range": {
+      "body": "0123456789",
+      "range": true
+    },
+    "/range-ignored": {
+      "body": "0123456789"
+    },
+    "/truncated": {
+      "body": "partial",
+      "truncate": true
+    },
+    "/observations/1": {
+      "json": {
+        "items": [
+          {
+            "supplier": "alpha",
+            "sku": "TIP-20",
+            "quote_id": "Q1",
+            "valid_from": "2026-11-01",
+            "price": "240.00",
+            "currency": "CNY",
+            "package": "carton",
+            "description": "2内盒/箱，100支/内盒"
+          }
+        ]
+      }
+    },
+    "/observations/2": {
+      "json": {
+        "items": [
+          {
+            "supplier": "beta",
+            "sku": "TIP-20",
+            "quote_id": "Q2",
+            "valid_from": "2026-11-01",
+            "price": "125.00",
+            "currency": "CNY",
+            "package": "box",
+            "description": "100支/盒"
+          }
+        ]
+      }
+    },
+    "/observations/3": {
+      "json": {
+        "items": [
+          {
+            "supplier": "alpha",
+            "sku": "TIP-20",
+            "quote_id": "Q3",
+            "valid_from": "2026-11-12",
+            "price": "250.00",
+            "currency": "CNY",
+            "package": "carton",
+            "description": "新版整箱，待确认"
+          }
+        ]
+      }
+    }
+  }
+}

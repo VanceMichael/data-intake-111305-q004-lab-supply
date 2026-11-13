@@ -1,0 +1,17 @@
+[
+  {
+    "name": "packaging_changes",
+    "situation": "同SKU跨生效期换装",
+    "observable": "价格只使用对应期限规则"
+  },
+  {
+    "name": "mixed_publication",
+    "situation": "回算中途失败且用户正在查询",
+    "observable": "已发布清单版本自洽"
+  },
+  {
+    "name": "supplier_isolation",
+    "situation": "一家规则矛盾",
+    "observable": "隔离该依赖范围，不阻断其他来源"
+  }
+]
