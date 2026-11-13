@@ -18,6 +18,8 @@
 
 ## 领域样例
 
-- `packaging_changes`：同SKU跨生效期换装；业务侧关注价格只使用对应期限规则。
-- `mixed_publication`：回算中途失败且用户正在查询；业务侧关注已发布清单版本自洽。
-- `supplier_isolation`：一家规则矛盾；业务侧关注隔离该依赖范围，不阻断其他来源。
+- `name`：situation；业务侧关注observable。
+- `name`：situation；业务侧关注observable。
+- `name`：situation；业务侧关注observable。
+
+另外提供 `/rate-limited`、`/unstable`、`/range`、`/range-ignored`、`/truncated`、`/observations/1`、`/observations/2`、`/observations/3`。响应内容和版本由场景文件逐项声明，便于核对实际收到的来源资料。
